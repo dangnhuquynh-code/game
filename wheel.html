@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vòng quay trung thu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/wheelnav.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/spin-wheel.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Italianno&display=swap"
+            rel="stylesheet"
+    />
+</head>
+
+<body>
+<div class="container"  style="display: flex; height: 100vh;">
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <button class="close-button" onclick="closePopup()">&times;</button>
+            <div class="popup-content">
+                <h2 class="title-popup">Title Pop-up</h2>
+                <p>Hello world Hello world Hello world Hello world</p>
+                <div class="btn"></div>
+                <button class="btn_ok" onclick="closePopup()">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-panel page">
+        <h1>Cài đặt</h1>
+        <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+            <input type="radio" name="pcss3t" checked  id="tab1"class="tab-content-first">
+            <label for="tab1"><i class="icon-gift"></i>Quà</label>
+
+            <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+            <label for="tab2"><i class="icon-circle"></i>Nút quay</label>
+
+            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+            <label for="tab3"><i class="icon-circle-blank"></i>Viền</label>
+
+            <input type="radio" name="pcss3t" id="tab4" class="tab-content-4">
+            <label for="tab4"><i class="icon-circle-blank"></i>Hình nền</label>
+
+            <input type="radio" name="pcss3t" id="tab5" class="tab-content-5">
+            <label for="tab5"><i class="icon-picture"></i>Chủ đề</label>
+
+            <input type="radio" name="pcss3t" id="tab6" class="tab-content-6">
+            <label for="tab6"><i class="icon-picture"></i>Màu</label>
+            <ul>
+                <li class="tab-content tab-content-first typography">
+                    <div class="number-input">
+                        <label for="numInput">Số lượng quà:</label>
+                        <input type="number" id="numInput"  min="2" max="20" value="" />
+                    </div>
+                    <div id="rewardList"></div>
+                    <div id="segmentFields"></div>
+                </li>
+
+                <li class="tab-content tab-content-2 typography">
+                    <div id="btnList"></div>
+                    <input type="file" id="btnInput" />
+                    <img id="btnPreview" src="" width="100" style="margin-top: 10px;" alt="">
+                </li>
+
+                <li class="tab-content tab-content-3 typography">
+                    <div id="colorOptions" style="display:flex; gap:10px; margin:10px 0;">
+                    </div>
+                    <button id="addCustomColorBtn">+ Thêm màu tùy chọn</button>
+                    <label for="customColorInput"></label><input type="color" id="customColorInput" style="display:none">
+                    <div id="currentColorDisplay" style="margin-top:10px; font-weight: bold;">
+                        Màu nền hiện tại: <span id="currentColorBox" style="display:inline-block; width:30px; height:30px; vertical-align:middle; border:1px solid #ccc; margin-left:10px;"></span>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <label>Chọn hình viền:</label><br>
+                        <div id="borderImageList" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;"></div>
+                        <input type="file" id="borderImageInput" accept="image/*">
+                        <img id="borderImagePreview" style="width: 80px; height: 80px; display: none; margin-top: 5px;" alt="" src="">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label>Chọn icon viền:</label>
+                        <div id="iconOptions" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 5px;"></div>
+                    </div>
+                </li>
+
+                <li class="tab-content tab-content-4 typography">
+                    <div id="bgOptions" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+                </li>
+                <li class="tab-content tab-content-5 typography">
+                    <div id="themeOptions" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+                </li>
+                <li class="tab-content tab-content-6 typography">
+                    <div id="wheelOptions" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+                </li>
+            </ul>
+            <button class="button-19" id="saveConfigBtn">Cập nhật vòng quay</button>
+        </div>
+    </div>
+    <div class="display">
+        <iframe id="spinFrame" src="">
+        </iframe>
+        <div class="wheel-wrapper">
+            <div class="wheel" id="wheelDiv" data-wheelnav></div>
+            <div class="wheel" id="wheelDiv2" data-wheelnav></div>
+            <img id="spin" class="spin_button"/>
+        </div>
+    </div>
+</div>
+<script src="js/popup.js"></script>
+</body>
+<script>
+    window.gameType = "spin";
+    const configFromDB = {
+        background: "",
+        button: "img/btn_default.png",
+        borderColor: "",
+        borderImage: "",
+        icon: "",
+        wheelColor: colorpalette.defaultpalette
+    };
+    window.currentBorderColor = configFromDB.borderColor;
+    window.currentBackgroundImage = configFromDB.background;
+    window.currentBtnImages = configFromDB.button;
+    window.currentBorderImage = configFromDB.borderImage;
+    window.currentIcon = configFromDB.icon;
+    window.currentWheelColor = configFromDB.wheelColor;
+    window.rewards =  [
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"}
+    ];
+    window.borderImages = [
+        'img/border1.png',
+    ];
+    window.btnImages = [
+        "img/btn_default.png",
+        "img/btn_red.png",
+        "img/btn_yellow.png",
+        "img/btn_blue.png",
+        "img/btn_green.png",
+        "img/btn_mooncake.png"
+    ];
+    window.icons = [
+        'img/star_icon.png',
+        'img/led_icon.png',
+    ];
+    window.background = [
+        { img: "img/bg-trung-thu.png", src: "bg/trungthuwheel.html" },
+        { img: "img/bg-mua-he.png", src: "bg/muahewheel.html" }
+    ]
+    window.theme = [
+        { img: "img/bg-mua-he.png", background: "bg/muahewheel.html", button: "img/btn_yellow.png", borderColor: "#ffff03", borderImage: "", icon: "img/led_icon.png", wheelColor: colorpalette.fractallove },
+        { img: "img/bg-trung-thu.png", background: "bg/trungthuwheel.html",  button: "img/btn_mooncake.png", borderColor: "", borderImage: "img/border1.png", icon: "img/star_icon.png",  wheelColor: colorpalette.hotaru }
+    ]
+    window.wheelColor = [
+        { img: "/img/color-default.png", color: colorpalette.defaultpalette},
+        { img: "/img/color-purple.png", color: colorpalette.purple},
+        { img: "/img/color-greenred.png", color: colorpalette.greenred},
+        { img: "/img/color-greensilver.png", color: colorpalette.greensilver},
+        { img: "/img/color-oceanfive.png", color: colorpalette.oceanfive},
+        { img: "/img/color-garden.png", color: colorpalette.garden},
+        { img: "/img/color-gamebookers.png", color: colorpalette.gamebookers},
+        { img: "/img/color-parrot.png", color: colorpalette.parrot},
+        { img: "/img/color-pisycholand.png", color: colorpalette.pisycholand},
+        { img: "/img/color-makeLOVEnotWAR.png", color: colorpalette.makeLOVEnotWAR},
+        { img: "/img/color-theworldismine.png", color: colorpalette.theworldismine},
+        { img: "/img/color-fractalloveone.png", color: colorpalette.fractalloveone},
+        { img: "/img/color-fractallovetwo.png", color: colorpalette.fractallovetwo},
+        { img: "/img/color-fractallove.png", color: colorpalette.fractallove},
+        { img: "/img/color-sprinkles.png", color: colorpalette.sprinkles},
+        { img: "/img/color-goldenyellow.png", color: colorpalette.goldenyellow},
+        { img: "/img/color-hotaru.png", color: colorpalette.hotaru}
+     ]
+    window.playerData = [
+        { id: 1, name: "User A", email:"a@gmail.com", phone: "0123456789", password: "123" },
+        { id: 2, name: "User B", email:"b@gmail.com", phone: "0987654321", password: "234" }];
+
+    window.spinlogs  = [
+        { userId: 1, status: "unused", prizeId: null, createdAt: Date.now(), spinTime: null },
+        { userId: 1, status: "unused", prizeId: null, createdAt: Date.now(), spinTime: null },
+        { userId: 1, status: "unused", prizeId: null, createdAt: Date.now(), spinTime: null },
+        { userId: 1, status: "used", prizeId: 2, createdAt: Date.now(), spinTime: Date.now() }
+    ];
+
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
+<script type="module" src="js/spin-wheel.js"></script>
+<script type="module" src="js/custom.js"></script>
+<!--<script src="js/player.js"></script>-->
+</html>
+
+

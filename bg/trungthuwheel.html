@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vòng quay trung thu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Italianno&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/wheelnav.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/trungthuwheel.css" />
+    <link rel="stylesheet" href="../css/spin-wheel.css" />
+</head>
+<body>
+<audio  id="bg-music" loop>
+    <source src="../audio/mid-autumn-festival.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="spinSound" src="../audio/spin.wav" preload="auto"></audio>
+<div class="container starry_sky">
+    <img id="play" class="btn-music" src="../img/play.png" alt="" />
+    <div class="title">
+        <button>
+            Vòng Quay Trung Thu
+            <img src="../img/img_bg_title.png" alt="" class="img_title" />
+        </button>
+    </div>
+    <div class="list_btn">
+        <button class="open-button" onclick="requestPopup('rule')">
+            Thể lệ
+            <img src="../img/img_bg_btn.png" alt="" class="img_bg_btn" />
+        </button>
+        <button class="open-button" onclick="requestPopup('history')">
+            Lịch sử
+            <img src="../img/img_bg_btn.png" alt="" class="img_bg_btn" />
+        </button>
+        <button class="open-button" onclick="requestPopup('share')">
+            Chia sẻ
+            <img src="../img/img_bg_btn.png" alt="" class="img_bg_btn" />
+        </button>
+    </div>
+    <div class="count">Số lượt chơi còn lại:&nbsp;<span></span>&nbsp;lượt</div>
+    <div class="container-wrapper">
+
+    </div>
+    <div class="img">
+        <img src="../img/img_bg_lantern.png" alt="" class="img_bg_lantern" />
+        <img src="../img/img_cloud_1.png" alt="" class="img_cloud_1" />
+        <img src="../img/img_cloud_1.png" alt="" class="img_cloud_2" />
+        <img src="../img/img_lantern_1.png" alt="" class="img_lantern_1" />
+        <img src="../img/img_lantern_2.png" alt="" class="img_lantern_2" />
+        <img src="../img/img_lantern_3.png" alt="" class="img_lantern_3" />
+        <img src="../img/img_lantern_4.png" alt="" class="img_lantern_4" />
+        <img src="../img/img_lantern_5.png" alt="" class="img_lantern_5" />
+        <img src="../img/img_lantern_6.png" alt="" class="img_lantern_6" />
+        <img src="../img/img_lantern_7.png" alt="" class="img_lantern_7" />
+        <img src="../img/img_lantern_8.png" alt="" class="img_lantern_8" />
+        <img src="../img/img_lantern_9.png" alt="" class="img_lantern_9" />
+        <img src="../img/img_rabbit.png" alt="" class="img_rabbit" />
+        <div class="unicorn_and_eyes_container">
+            <div class="unicorn_and_eyes">
+                <img
+                        src="../img/img_eyes_opened.png"
+                        alt=""
+                        class="img_eyes_unicorn opened"
+                />
+                <img
+                        src="../img/img_eyes_closed.png"
+                        alt=""
+                        class="img_eyes_unicorn closed"
+                />
+                <!-- <img src="img/img_unicorn.png" alt="" class="img_unicorn" /> -->
+            </div>
+        </div>
+        <img src="../img/img_lawn_1.png" alt="" class="img_lawn_1" />
+        <img src="../img/img_lawn_2.png" alt="" class="img_lawn_2" />
+    </div>
+</div>
+</body>
+<script src="../js/popup.js"></script>
+<script type="module" src="../js/spin-wheel.js"></script>
+<script src="../js/trungthuwheel.js"></script>
+<script type="module" src="../js/music.js"></script>
+</html>

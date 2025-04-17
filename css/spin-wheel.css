@@ -1,0 +1,129 @@
+.spin_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  width: 20%;
+}
+.spin_button_off {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+}
+.bg-wheel-border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+.wheel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+.icon-container {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-container .icon {
+  position: absolute;
+  width: 30px; /* Kích thước của icon */
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.border-overlay {
+  z-index: 5;
+  mix-blend-mode: normal; /* hoặc "multiply", "screen"... nếu muốn hiệu ứng lồng */
+}
+/*.count {
+  color: #ffffff;
+  font-size: 30px;
+  position: absolute;
+  top: 10%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 3;
+}*/
+.wheel-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  z-index: 2;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  min-height: 300px;
+}
+
+.popup-content {
+  margin-bottom: 15px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .wheel-wrapper {
+    width: 75vw;
+    max-width: 400px;
+  }
+
+  .spin_button {
+    width: 28%;
+  }
+}
+
+@media (max-width: 480px) {
+  .wheel-wrapper {
+    width: 65vw;
+    max-width: 300px;
+  }
+
+  .spin_button {
+    width: 35%;
+  }
+}

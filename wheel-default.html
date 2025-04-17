@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vòng quay trung thu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/wheelnav.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/spin-wheel.css" />
+</head>
+<body>
+<div class="container"  style="display: flex; height: 100vh;">
+
+    <div class="display">
+        <div class="wheel-wrapper">
+            <div class="wheel" id="wheelDiv" data-wheelnav></div>
+            <div class="wheel" id="wheelDiv2" data-wheelnav></div>
+            <img id="spin" class="spin_button" />
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    window.gameType = "spin";
+    const configFromDB = {
+        background: "",
+        button: "img/btn_default.png",
+        borderColor: "",
+        borderImage: "",
+        icon: "",
+        wheelColor: colorpalette.defaultpalette
+    };
+    window.currentBorderColor = configFromDB.borderColor;
+    window.currentBackgroundImage = configFromDB.background;
+    window.currentBtnImages = configFromDB.button;
+    window.currentBorderImage = configFromDB.borderImage;
+    window.currentIcon = configFromDB.icon;
+    window.currentWheelColor = configFromDB.wheelColor;
+    window.rewards =  [
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"},
+        { img: "img/gift.png", name: "Tên quà"}
+    ];
+    window.borderImages = [
+        'img/border1.png',
+    ];
+    window.btnImages = [
+        "img/btn_default.png",
+        "img/btn_red.png",
+        "img/btn_yellow.png",
+        "img/btn_blue.png",
+        "img/btn_green.png",
+        "img/btn_mooncake.png"
+    ];
+    window.icons = [
+        'img/star_icon.png',
+        'img/led_icon.png',
+    ];
+    window.background = [
+        { img: "img/bg-trung-thu.png", src: "bg/trungthuwheel.html" },
+        { img: "img/bg-mua-he.png", src: "bg/muahewheel.html" }
+    ]
+    window.theme = [
+        { img: "img/bg-mua-he.png", background: "bg/muahewheel.html", button: "img/btn_yellow.png", borderColor: "#ffff03", borderImage: "", icon: "img/led_icon.png", wheelColor: colorpalette.fractallove },
+        { img: "img/bg-trung-thu.png", background: "bg/trungthuwheel.html",  button: "img/btn_mooncake.png", borderColor: "", borderImage: "img/border1.png", icon: "img/star_icon.png",  wheelColor: colorpalette.hotaru }
+    ]
+    window.wheelColor = [
+        { img: "/img/color-default.png", color: colorpalette.defaultpalette},
+        { img: "/img/color-purple.png", color: colorpalette.purple},
+        { img: "/img/color-greenred.png", color: colorpalette.greenred},
+        { img: "/img/color-greensilver.png", color: colorpalette.greensilver},
+        { img: "/img/color-oceanfive.png", color: colorpalette.oceanfive},
+        { img: "/img/color-garden.png", color: colorpalette.garden},
+        { img: "/img/color-gamebookers.png", color: colorpalette.gamebookers},
+        { img: "/img/color-parrot.png", color: colorpalette.parrot},
+        { img: "/img/color-pisycholand.png", color: colorpalette.pisycholand},
+        { img: "/img/color-makeLOVEnotWAR.png", color: colorpalette.makeLOVEnotWAR},
+        { img: "/img/color-theworldismine.png", color: colorpalette.theworldismine},
+        { img: "/img/color-fractalloveone.png", color: colorpalette.fractalloveone},
+        { img: "/img/color-fractallovetwo.png", color: colorpalette.fractallovetwo},
+        { img: "/img/color-fractallove.png", color: colorpalette.fractallove},
+        { img: "/img/color-sprinkles.png", color: colorpalette.sprinkles},
+        { img: "/img/color-goldenyellow.png", color: colorpalette.goldenyellow},
+        { img: "/img/color-hotaru.png", color: colorpalette.hotaru}
+    ]
+    window.playerData = [
+        { id: 1, name: "User A", phone: "0123456789" },
+        { id: 2, name: "User B", phone: "0987654321" }];
+
+    window.spinlogs  = [
+        { userId: 1, status: "unused", prizeId: null, createdAt: Date.now(), spinTime: null },
+        { userId: 1, status: "used", prizeId: 2, createdAt: Date.now(), spinTime: Date.now() }
+    ];
+
+</script>
+<script type="module" src="js/spin-wheel.js"></script>
+</html>

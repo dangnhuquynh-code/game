@@ -1,0 +1,92 @@
+.box_guess {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cup_2,
+.cup_3,
+.cup_4 {
+    position: absolute;
+    bottom: 60%;
+    width: 24%;
+    z-index: 3;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.cup_2 {
+    left: 8%;
+}
+
+.cup_3 {
+    left: 39%;
+    /* transform: translateX(-50%);*/
+}
+.cup_4 {
+    left: 70%;
+}
+
+.img_cup_1,
+.img_cup_2,
+.img_cup_3 {
+    width: 105%;
+    height: auto;
+    margin-bottom: -29%;
+    position: relative;
+    z-index: 3;
+    animation: pulseLantern 1.8s ease-in-out infinite;
+}
+
+.guess {
+    position: absolute;
+    left: 21%;
+    z-index: 4;
+}
+.btn_start button,
+.btn_restart button {
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 25px 0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.btn_restart {
+    visibility: hidden;
+}
+.btn_start button img,
+.btn_restart button img {
+    position: absolute;
+    width: fit-content;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+.btn_start,
+.btn_restart {
+    position: absolute;
+    bottom: 20%;
+    left: 40%;
+    z-index: 5;
+    width: 200px;
+    animation: pulseButton 1.5s ease-in-out infinite;
+}

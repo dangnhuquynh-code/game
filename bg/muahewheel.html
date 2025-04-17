@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/muahewheel.css" />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/wheelnav.min.js"></script>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap"
+            rel="stylesheet"
+    />
+    <title>Image Wheel</title>
+    <title>Summer</title>
+</head>
+<body>
+<div class="container">
+    <div class="title-menu">
+        <div class="title">Summer</div>
+        <div class="menu">
+            <button class="open-button" onclick="requestPopup('rule')">Thể lệ</button>
+            <button class="open-button" onclick="requestPopup('history')">Lịch sử</button>
+            <button class="open-button" onclick="requestPopup('share')">Chia sẻ</button>
+        </div>
+    </div>
+    <img src="../img/image-umbrella-1.png" class="img_umbrella_1" />
+    <div class="count-spin">Bạn còn&nbsp;<span>2</span>&nbsp;lượt</div>
+    <div class="circle"></div>
+    <div class="sea"></div>
+
+    <div class="img">
+        <img src="../img/image-cloud.png" class="img_cloud_1" />
+        <img src="../img/image-sun.png" class="img_sun" />
+        <img src="../img/image-cloud.png" class="img_cloud_2" />
+        <img src="../img/image-umbrella-2.png" class="img_umbrella_2" />
+        <img src="../img/image-slippers.png" class="img_slippers" />
+        <img src="../img/image-coconut.png" class="img_coconut" />
+        <div class="wave">
+            <img src="../img/ship.png" class="img_wave_1" />
+            <img src="../img/ship.png" class="img_wave_2" />
+            <img src="../img/ship.png" class="img_wave_3" />
+            <img src="../img/ship.png" class="img_wave_4" />
+        </div>
+        <img src="../img/image-ship.png" class="img_ship" />
+    </div>
+</div>
+<script src="../js/muahewheel.js"></script>
+</body>
+
+</html>

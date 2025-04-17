@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đoán Phần Thưởng Ở Đâu</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fontsource/briem-hand"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+            rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/are-you-serious" rel="stylesheet">
+    <link rel="stylesheet" href="../css/halloween.css" />
+    <link rel="stylesheet" href="../css/popup-trungthu.css" />
+    <link rel="stylesheet" href="../css/animation.css" />
+</head>
+<body>
+<!-- audio -->
+<audio id="bg-music" loop>
+    <source src="../audio/music_christmas.mp3" type="audio/mpeg" class="music_christmas"/>
+    <source src="../audio/music_halloween.mp3" type="audio/mpeg" class="music_halloween"/>
+</audio>
+<!-- <audio id="spinSound" src="audio/spin.wav" preload="auto"></audio> -->
+<!-- audio -->
+
+<div class="container">
+    <!-- background -->
+    <div class="background">
+        <div class="bg_top"></div>
+        <div class="middle"></div>
+        <div class="bg_bottom"></div>
+        <div class="starry_sky"></div>
+    </div>
+    <!-- background -->
+    <!-- button start restart -->
+
+    <!-- button start restart -->
+
+    <!-- img -->
+    <div class="img">
+        <img src="../img/img_top_left_1.png" alt="" class="img_top_left_1" />
+        <img src="../img/img_top_right_1.png" alt="" class="img_top_right_1" />
+        <img src="../img/img_item_1.png" alt="" class="img_item_1" />
+        <img src="../img/img_item_2.png" alt="" class="img_item_2" />
+        <img src="../img/img_item_3.png" alt="" class="img_item_3" />
+        <img id="play" class="btn-music" src="../img/play.png" alt="" />
+        <div class="bottom_left_1">
+            <img src="../img/img_bottom_left_1.png" alt="" class="img_bottom_left_1" />
+            <img src="../img/img_bottom_left_light_1.png" alt="" class="img_bottom_left_light_1">
+        </div>
+        <div class="bottom_left_2">
+            <img src="../img/img_bottom_left_2.png" alt="" class="img_bottom_left_2" />
+            <img src="../img/img_bottom_left_light_2.png" alt="" class="img_bottom_left_light_2">
+        </div>
+        <img src="../img/img_bottom_right_1.png" alt="" class="img_gift_cart" />
+    </div>
+    <!-- img -->
+
+    <!-- title -->
+    <div class="title">
+        <span>Ông già Noel</span> <br />
+        <!-- <span >đâu rồi?</span> -->
+        <img src="../img/img_title.png" alt="" class="img_bg_title" />
+    </div>
+    <!-- title -->
+
+    <!-- list-btn -->
+    <div class="list_btn">
+        <button class="btn_rule" title="Quy tắc chơi" onclick="openPopup('rules')">
+            <img src="../img/img_rule_icon.png" alt="" class="img_rule_icon"  />
+        </button>
+        <button class="btn_gift" title="Quà tặng" onclick="openPopup('gift')">
+            <img src="../img/img_gift_icon.png" alt="" class="img_gift_icon"  />
+        </button>
+        <button class="btn_list" title="Danh sách quà" onclick="openPopup('list')">
+            <img src="../img/img_list_icon.png" alt="" class="img_list_icon"  />
+        </button>
+        <button class="btn_recharge" title="Nạp thêm" onclick="openPopup('recharge')">
+            <img
+                    src="../img/img_recharge_icon.png"
+                    alt=""
+                    class="img_recharge_icon"
+                    title="Nạp thêm"
+            />
+        </button>
+            <button class="share_icon" title="Chia sẻ" onclick="openPopup('share')">
+                <img src="../img/img_share_icon.png" alt="" class="img_share_icon"  />
+            </button>
+    </div>
+    <!-- list-btn -->
+
+    <!-- count -->
+    <div class="count">
+        Số lượt còn lại:&nbsp;<span></span>&nbsp;lượt
+    </div>
+    <!-- count -->
+
+    <!-- box-guess -->
+
+    <!-- box-guess -->
+    <!-- animation -->
+    <div class="animation">
+        <!-- animation: deer -->
+        <div class="head_body_deer">
+            <img src="img/animation/img_deer_head.png" alt="" class="img_head_deer" />
+            <img src="img/animation/img_deer_body.png" alt="" class="img_body_deer" />
+        </div>
+        <!-- animation: deer -->
+        <!-- animation: ghost -->
+        <div class="ghost">
+            <img src="img/animation/img_ghost.png" alt="" class="img_ghost" />
+        </div>
+        <!-- animation: ghost -->
+        <!-- animation: spider -->
+        <div class="spider">
+            <img src="img/animation/img_top_1.png" alt="" class="img_img_top_1" />
+            <img src="img/animation/img_top_2.png" alt="" class="img_img_top_2" />
+        </div>
+        <!-- animation: spider -->
+    </div>
+    <!-- animation -->
+</div>
+<!-- pop-up -->
+<div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+        <button class="close-button" onclick="closePopup()">&times;</button>
+        <div class="popup-content">
+            <h2 class="title-popup">Title Pop-up</h2>
+            <p>Có cái gì đâu mà click vào!!!</p>
+            <div class="btn"></div>
+            <button class="btn_ok" onclick="closePopup()">Đồng ý</button>
+        </div>
+    </div>
+</div>
+
+<!-- pop-up -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="../js/popup.js"></script>
+<script src="../js/image-handler.js"></script>
+<script type="module" src="../js/music.js"></script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+:root {
+    --width: 100%;
+    --max-width: 768px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: var(--width);
+    max-width: var(--max-width);
+    color: #fff;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+/* .starry_sky {
+  background-image: linear-gradient(to bottom, #143d59, #254e6f, #355f85);
+} */
+/* --- Lớp sao 1: Nhỏ nhất, dày đặc nhất --- */
+.starry_sky::before {
+    content: "";
+    position: absolute;
+    /* inset: 0;  */ /*shorthand top, right, bottom, và left = 0 */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 15%;
+    background-image: radial-gradient(1px 1px at 10px 30px, white, transparent),
+    radial-gradient(1px 1px at 40px 60px, white, transparent);
+    background-size: 60px 60px;
+    background-position: 0 0;
+    animation: twinkle 2s linear infinite;
+}
+
+/* --- Lớp sao 2: Lớn hơn chút, thưa hơn, vị trí khác --- */
+.starry_sky::after {
+    content: "";
+    position: absolute;
+    /* inset: 0;  */ /*shorthand top, right, bottom, và left = 0 */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 15%;
+    background-image: radial-gradient(
+            1.5px 1.5px at 50px 20px,
+            white,
+            transparent
+    ),
+    radial-gradient(1.5px 1.5px at 90px 70px, white, transparent);
+    background-size: 120px 120px;
+    background-position: 20px 10px;
+    animation: twinkle 2s linear infinite reverse;
+}
+/* Lớp sao 3: Lớn nhất, thưa nhất */
+.starry_sky {
+    background-image: radial-gradient(
+            2.5px 2.5px at 100px 150px,
+            white,
+            transparent
+    ),
+    radial-gradient(3.5px 3.5px at 200px 50px, white, transparent),
+    linear-gradient(to bottom, #143d59, #254e6f, #355f85);
+    background-size: 250px 250px, 250px 250px, 100% 100%;
+    background-position: 40px 20px, 40px 20px, 0 0;
+}
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+.img_bg_lantern {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.img_cloud_1 {
+    width: 24%;
+    height: 7%;
+    position: absolute;
+    top: 0;
+    left: -2%;
+    animation: cloud_1 60s linear infinite;
+}
+@keyframes cloud_1 {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+.img_cloud_2 {
+    width: 26%;
+    height: 8%;
+    position: absolute;
+    top: 14%;
+    right: -2%;
+    animation: cloud_2 60s linear infinite;
+}
+.btn-music {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes cloud_2 {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+.title {
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    width: 270px;
+    height: 120px;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.title button {
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: bold;
+    font-style: italic;
+    /* padding: 0 0 18px 0; */
+    font-family: "Italianno", cursive;
+}
+
+.title button img {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+    z-index: -1;
+    top: -6%;
+    left: -10%;
+}
+.list_btn {
+    position: absolute;
+    top: 19%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    z-index: 3;
+}
+.list_btn button {
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    width: 114px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Italianno", cursive;
+}
+.list_btn button img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+.img_lantern_1 {
+    position: absolute;
+    left: 30%;
+    top: 16%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_2 {
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_3 {
+    position: absolute;
+    right: 44%;
+    top: 2%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_4 {
+    position: absolute;
+    right: 39%;
+    top: 9%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_5 {
+    position: absolute;
+    right: 7%;
+    top: 37%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_6 {
+    position: absolute;
+    left: 6%;
+    top: 43%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_7 {
+    position: absolute;
+    left: 10%;
+    top: 61%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_8 {
+    position: absolute;
+    top: 53%;
+    right: 13%;
+    animation: flying_lantern 30s linear infinite;
+}
+.img_lantern_9 {
+    position: absolute;
+    top: 65%;
+    right: 4%;
+    animation: flying_lantern 30s linear infinite;
+}
+
+@keyframes flying_lantern {
+    0% {
+        transform: translateY(70vw);
+        filter: drop-shadow(0 0 5px rgba(255, 236, 173, 0.6));
+    }
+    100% {
+        transform: translateY(-70vw);
+        filter: drop-shadow(0 0 10px rgba(255, 236, 173, 0.9));
+    }
+}
+
+.count {
+    font-family: "Italianno", cursive;
+    color: #ffffff;
+    font-size: 40px;
+    position: absolute;
+    top: 24%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 3;
+}
+/* Default */
+.container-wrapper {
+    position: relative;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    width: 45vw;
+    height: 45vw;
+    max-width: 350px;
+    max-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+    border-radius: 50%;
+    background-color: #ffffff;
+    animation: wheelGlow 3s linear infinite;
+}
+
+
+
+
+@keyframes wheelGlow {
+    0% {
+        filter: drop-shadow(0 0 50px rgba(200, 220, 255, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 50px rgba(200, 220, 255, 0.9));
+    }
+    100% {
+        filter: drop-shadow(0 0 50px rgba(200, 220, 255, 0.6));
+    }
+}
+
+.img_lawn_1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 65%;
+    height: 10%;
+}
+.img_lawn_2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65%;
+    height: 10%;
+}
+.img_rabbit {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    z-index: 2;
+    height: 14%;
+}
+
+.unicorn_and_eyes_container {
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+    width: 270px;
+    height: 280px;
+    z-index: 3;
+}
+
+.unicorn_and_eyes {
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: url(../img/img_unicorn.png) no-repeat center center;
+    background-size: cover;
+}
+
+.unicorn_and_eyes img {
+    position: absolute;
+    width: 108px;
+    height: 120px;
+    object-fit: contain;
+    z-index: 1;
+}
+.img_eyes_unicorn.closed {
+    bottom: 41%;
+    right: 42.5%;
+    opacity: 0;
+}
+.img_eyes_unicorn.opened {
+    bottom: 42%;
+    right: 42.5%;
+    opacity: 1;
+}
+
+/* .img_unicorn {
+  position: absolute;
+  bottom: 1%;
+  right: 5%;
+  z-index: 3;
+}
+
+.img_eyes_unicorn {
+  position: absolute;
+  z-index: 4;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease-in-out;
+}
+.img_eyes_unicorn.closed {
+  bottom: 16.8%;
+  right: 14%;
+  height: 4.5%;
+  opacity: 1;
+}
+.img_eyes_unicorn.opened {
+  bottom: 16%;
+  right: 14.5%;
+  height: 6.8%;
+  opacity: 1;
+} */
+
+/* .img_eyes_unicorn.blinking {
+  animation-name: blink;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in-out;
+
+}
+@keyframes blink {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.1);
+    opacity: 0.8;
+  }
+} */
+
+/* Popup */
+@keyframes unicornGlow {
+    0% {
+        filter: drop-shadow(0 0 15px rgba(255, 236, 173, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(255, 236, 173, 0.9));
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 236, 173, 0.6));
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 479px) {
+    .img_cloud_2 {
+        top: 14%;
+    }
+    .title {
+        width: 270px;
+    }
+    .list_btn {
+        top: 18%;
+        gap: 10px;
+    }
+    .list_btn button {
+        width: 109px;
+        padding: 6px 0px 7px 0px;
+        font-size: 17px;
+    }
+    .container-wrapper {
+        top: 56%;
+    }
+    .count {
+        top: 22%;
+    }
+    .img_unicorn {
+        height: 27%;
+    }
+    .img_rabbit {
+        height: 12%;
+    }
+    .unicorn_and_eyes_container {
+        bottom: 0;
+        right: 0;
+    }
+
+    .unicorn_and_eyes {
+        width: 85%;
+        height: 85%;
+    }
+
+    .img_eyes_unicorn.closed {
+        bottom: 39%;
+        right: 42.5%;
+        width: 40%;
+    }
+    .img_eyes_unicorn.opened {
+        bottom: 38%;
+        right: 43.5%;
+        width: 40%;
+    }
+    .count {
+        top: 23%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .img_cloud_2 {
+        top: 13%;
+    }
+    .title button {
+        font-size: 35px;
+        padding-bottom: 7px;
+    }
+    .title button img {
+        width: 120%;
+        height: 120%;
+        top: -10%;
+        left: -10%;
+    }
+    .list_btn {
+        top: 23%;
+        font-size: 20px;
+    }
+    .container-wrapper {
+        top: 56.5%;
+    }
+    .list_btn button {
+        width: 100px;
+        padding: 5px 0px;
+    }
+    .img_unicorn {
+        height: 25%;
+    }
+    .img_rabbit {
+        height: 10%;
+    }
+    .unicorn_and_eyes_container {
+        bottom: -8%;
+        right: -14%;
+    }
+
+    .unicorn_and_eyes {
+        width: 70%;
+        height: 70%;
+    }
+
+    .img_eyes_unicorn.closed {
+        bottom: 32.5%;
+        right: 43.2%;
+        width: 40%;
+    }
+    .img_eyes_unicorn.opened {
+        bottom: 33%;
+        right: 43.5%;
+        width: 40%;
+    }
+    .count {
+        top: 30%;
+    }
+
+}
